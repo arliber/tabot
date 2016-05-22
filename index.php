@@ -15,8 +15,11 @@
         //logMessage('Wrong verification token', 'error');
         //echo 'Error, wrong validation token';
         
-        file_put_contents('php://stderr', http_build_query($_POST), FILE_APPEND);
-        echo print_r(http_build_query($_POST));
+        //file_put_contents('php://stderr', http_build_query($_POST)."\n", FILE_APPEND);
+        //echo print_r(http_build_query($_POST));
+        
+        logMessage(http_build_query($_POST),"success");
+        
     }
    
 ?>
