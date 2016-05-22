@@ -1,7 +1,7 @@
 <?php
     
     function logMessage($message, $severity = 'info') {
-        file_put_contents('log.txt', $severity.' ['.(date('m/d/Y h:i:s a', time())).']: '.$message."\n", FILE_APPEND);
+        file_put_contents('php://stderr', $severity.' ['.(date('m/d/Y h:i:s a', time())).']: '.$message."\n", FILE_APPEND);
     }
     
     logMessage('Request made..');
@@ -12,8 +12,11 @@
         echo $_GET['hub_challenge'];
         
     } else {
-        logMessage('Wrong verification token', 'error');
-        echo 'Error, wrong validation token';
+        //logMessage('Wrong verification token', 'error');
+        //echo 'Error, wrong validation token';
+        
+        file_put_contents('php://stderr', http_build_query($_POST), FILE_APPEND);
+        echo print_r(http_build_query($_POST));
     }
    
 ?>
