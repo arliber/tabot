@@ -19,6 +19,7 @@
         //echo print_r(http_build_query($_POST));
         
         logMessage(http_build_query($_POST),"success");
+        logMessage(http_build_query(json_decode(file_get_contents('php://input'), true)),"success");
         
     }
    
