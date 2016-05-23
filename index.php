@@ -38,13 +38,57 @@
             $sender = $event['sender'];
             $recipient = $event['recipient'];
             
-            logMessage($recipient['text'], "message");
-
-            
             if($event['message'] && $event['message']['text']) {
                 $text = $event['message']['text'];
                 
-                logMessage($text, "message2");
+                logMessage($text, "message");
+                
+                //Send response
+                $token = 'EAAOZCEaUNtxIBAL1bafIm0IYzlo8YcLxjxklu7hjyi8QC4yzwFXFfK0p8qDluJxmGP3lE1roZAOwvCBr7F8dqx0Of7kpTgGRZBncZC1gxtHxlT79Lpbgg4LIfAZA7ZAVVgsskxPd3RbJjsSRcX5rJYRnd8sQbjW4LMBMbgICIf5QZDZD';
+                $url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$token;
+                $postData = array('recipient' => array('id' => $sender['id']), 'message' => 'GOT IT!!!');
+
+                $options = array(
+                    'http' => array(
+                        'header'  => "Content-type: application/json\r\n",
+                        'method'  => 'POST',
+                        'content' => json_encode($postData)
+                    )
+                );
+                
+                $context  = stream_context_create($options);
+                $result = file_get_contents($url, false, $context);
+                if ($result === FALSE) {
+                    logMessage(print_r($result, true), "error");
+                } else {
+                    logMessage(print_r($result, true), "success");
+                }
+
+                /*
+                var token = "<page_access_token>";
+
+                function sendTextMessage(sender, text) {
+                    messageData = {
+                        text:text
+                    }
+                request({
+                        url: 'https://graph.facebook.com/v2.6/me/messages',
+                        qs: {access_token:token},
+                        method: 'POST',
+                        json: {
+                        recipient: {id:sender},
+                        message: messageData,
+                        }
+                    }, function(error, response, body) {
+                        if (error) {
+                        console.log('Error sending message: ', error);
+                        } else if (response.body.error) {
+                        console.log('Error: ', response.body.error);
+                        }
+                    });
+                }
+                */
+                
                 
             } else {
                 logMessage(print_r($event, true), "error");
