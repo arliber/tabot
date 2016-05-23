@@ -35,7 +35,7 @@
             logMessage('Looping messages..', "info");
             
             $event = $value;
-            $sender - $event['sender']['id'];
+            $sender = $event['sender']['id'];
             
             if($event['message'] && $event['mssage']['text']) {
                 $text = $event['message']['text'];
@@ -43,7 +43,7 @@
                 logMessage($text, "message");
                 
             } else {
-                logMessage('Missing text!', "error");
+                logMessage(print_r($event, true), "error");
             }
         }
         
