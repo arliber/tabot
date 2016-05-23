@@ -53,9 +53,9 @@
                 $options = array(
                     'http' => array(
                         'header'  => "Content-type: application/json\r\n"
-                                    ."Content-Length: " . strlen(postData) . "\r\n",
+                                    ."Content-Length: " . strlen($postData) . "\r\n",
                         'method'  => 'POST',
-                        'content' => postData
+                        'content' => $postData
                     )
                 );
                 
