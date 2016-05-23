@@ -29,9 +29,23 @@
         //logMessage(print_r($data, true), "data");
         
         $messaging_events = $data['entry'][0]['messaging'];
+        
+        foreach($messaging_events as $key => $value) {
+            
+            logMessage('Looping messages..', "info");
+            
+            $event = $value;
+            $sender - $event['sender']['id'];
+            
+            if($event['message'] && $event['mssage']['text']) {
+                $text = $event['message']['text'];
                 
-        logMessage($messaging_events, "message");
-       
+                logMessage($text, "message");
+                
+            } else {
+                logMessage('Missing text!', "error");
+            }
+        }
         
     }
    
