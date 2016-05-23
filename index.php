@@ -47,7 +47,9 @@
                 $token = 'EAAOZCEaUNtxIBAL1bafIm0IYzlo8YcLxjxklu7hjyi8QC4yzwFXFfK0p8qDluJxmGP3lE1roZAOwvCBr7F8dqx0Of7kpTgGRZBncZC1gxtHxlT79Lpbgg4LIfAZA7ZAVVgsskxPd3RbJjsSRcX5rJYRnd8sQbjW4LMBMbgICIf5QZDZD';
                 $url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$token;
                 $postData = json_encode(array('recipient' => array('id' => $sender['id']), 'message' => 'GOT IT!!!'));
-
+                 
+                logMessage($postData, "data-sent");
+                 
                 $options = array(
                     'http' => array(
                         'header'  => "Content-type: application/json\r\n"
