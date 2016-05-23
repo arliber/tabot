@@ -28,6 +28,7 @@
         
         logMessage(print_r($data, true), "data");
         
+        logMessage($data[0]['entry'][0]['recipient']['message']['text'], "message");
        
         
     }
