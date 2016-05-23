@@ -18,8 +18,17 @@
         //file_put_contents('php://stderr', http_build_query($_POST)."\n", FILE_APPEND);
         //echo print_r(http_build_query($_POST));
         
-        logMessage(http_build_query($_POST),"success");
-        logMessage(http_build_query(json_decode(file_get_contents('php://input'), true)),"success");
+        //logMessage(http_build_query($_POST),"success");
+        
+        $data = json_decode(file_get_contents('php://input'), true);
+        
+        
+          
+       // logMessage(http_build_query($_POST),"success");
+        
+        logMessage(print_r($data, true), "data");
+        
+       
         
     }
    
