@@ -26,9 +26,11 @@
           
        // logMessage(http_build_query($_POST),"success");
         
-        logMessage(print_r($data, true), "data");
+        //logMessage(print_r($data, true), "data");
         
-        logMessage($data[0]['entry'][0]['recipient']['message']['text'], "message");
+        $messaging_events = $data['entry'][0]['messaging'];
+                
+        logMessage($messaging_events, "message");
        
         
     }
