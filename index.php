@@ -35,16 +35,21 @@
             logMessage('Looping messages..', "info");
             
             $event = $value;
-            $sender = $event['sender']['id'];
+            $sender = $event['sender'];
+            $recipient = $event['recipient'];
             
-            if($event['message'] && $event['mssage']['text']) {
+            logMessage($recipient['text'], "message");
+
+            
+            if($event['message'] && $event['message']['text']) {
                 $text = $event['message']['text'];
                 
-                logMessage($text, "message");
+                logMessage($text, "message2");
                 
             } else {
                 logMessage(print_r($event, true), "error");
             }
+            
         }
         
     }
