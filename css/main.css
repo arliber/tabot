@@ -79,6 +79,9 @@ textarea {
 }
 #kpis .card p {
     flex: 1 1 auto;
+    text-align: center;
+    font-size: 40px;
+    color: #92A2A8;
 }
 
 
