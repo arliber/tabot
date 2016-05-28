@@ -1,7 +1,11 @@
 <?php
     
+    require_once('TabotMemory.php');
+    
+    $tabotMemory = new TabotMemory();
+    
     function logMessage($message, $severity = 'info') {
-        file_put_contents('php://stderr', $severity.' ['.(date('m/d/Y h:i:s a', time())).']: '.$message."\n", FILE_APPEND);
+        //file_put_contents('php://stderr', $severity.' ['.(date('m/d/Y h:i:s a', time())).']: '.$message."\n", FILE_APPEND);
     }
     
     logMessage('Request made..');
@@ -14,6 +18,8 @@
     } else {
 
         $data = json_decode(file_get_contents('php://input'), true);
+        
+        file_put_contents('php://stderr', print_r($data, true), FILE_APPEND);
         
         $messaging_events = $data['entry'][0]['messaging'];
         
@@ -29,6 +35,7 @@
                 $text = $event['message']['text'];
                 
                 logMessage($text, "message");
+                $tabotMemory->saveMessage($text);
                 
                 //Send response
                 $token = 'EAAOZCEaUNtxIBAL1bafIm0IYzlo8YcLxjxklu7hjyi8QC4yzwFXFfK0p8qDluJxmGP3lE1roZAOwvCBr7F8dqx0Of7kpTgGRZBncZC1gxtHxlT79Lpbgg4LIfAZA7ZAVVgsskxPd3RbJjsSRcX5rJYRnd8sQbjW4LMBMbgICIf5QZDZD';
