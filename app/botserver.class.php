@@ -1,11 +1,20 @@
 <?php
     
-    require_once('TabotMemory.php');
-    
-    $tabotMemory = new TabotMemory();
-    
-    function logMessage($message, $severity = 'info') {
-        //file_put_contents('php://stderr', $severity.' ['.(date('m/d/Y h:i:s a', time())).']: '.$message."\n", FILE_APPEND);
+    class BotServer {
+        
+        protected $log;
+        
+        public function __construct($log) {
+            $this->log = $log;
+        }
+        
+        public function sayHi() {
+            $this->log->error('Hi!');
+        }
+        
+        /*
+        function logMessage($message, $severity = 'info') {
+        file_put_contents('php://stderr', $severity.' ['.(date('m/d/Y h:i:s a', time())).']: '.$message."\n", FILE_APPEND);
     }
     
     logMessage('Request made..');
@@ -68,5 +77,12 @@
         }
         
     }
+        */
+        
+        
+    }
+    
+    
+    
    
 ?>
