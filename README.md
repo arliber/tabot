@@ -21,6 +21,9 @@ FAQ
   Restart apache
   sudo service apache2 restart  
     
+Bot not getting messages from FB?
+Go to https://developers.facebook.com/apps/1054507434620690/messenger/ and make sure that under 'Webooks' the correct page is selected
+    
     ====================
     
     

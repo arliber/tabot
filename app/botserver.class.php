@@ -6,16 +6,28 @@
         private $verificationToken;
         private $hubChallenge;
         
+        private $bots = [];
+        
         public function __construct($log, $verificationToken) {
             $this->log = $log;
             $this->verificationToken = $verificationToken;
         }
         
-        public function botAuthentication($token, $hubChallenge) {
+        public function addBot($bot) {
+            $this->bots[] = $bot;
+        }
+        
+        private function botAuthentication($token, $hubChallenge) {
             if($token === $this->verificationToken) {
                 $this->hubChallenge = $hubChallenge; 
                 $this->log->info('botAuthentication: Got correct token, responding with ['.$this->hubChallenge.']');
                 echo $this->hubChallenge;
+            }
+        }
+        
+        public function notifyBots($message) {
+            foreach ($this->bots as $bot) {
+                $bot->processMessage($message);
             }
         }
         
@@ -32,9 +44,14 @@
                 
                 if($event['message'] && $event['message']['text']) {
                     $text = $event['message']['text'];
-                    $this->info('Message: ['.$text.']');
+                    $this->log->info('Message: ['.$text.']', $event);
+                    
+                    //Send message to all bots
+                    $message = new message($text, new user($sender['id']));
+                    $this->notifyBots($message);
+                    
                 } else {
-                    $this->log->error('Unproscessable message');
+                    $this->log->error('Unproscessable message', $event);
                 }
                 
             }

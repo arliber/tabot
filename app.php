@@ -10,8 +10,13 @@
     // Init log
     $log = new Logger('BotApp');
     $log->pushHandler(new StreamHandler('logs.log', Logger::DEBUG));
+    $log->info('App started..');
       
     $botServer = new BotServer($log, 'my_bot_app_will_change_the_world');
+    
+    $echoBot = new EchoBot($log);
+    
+    $botServer->addBot($echoBot);
     
     /*
         //Get request params as passed by .htaccess
@@ -31,7 +36,9 @@
                 break;
         }
     */
-    $log->info('test');
-    $botServer->processRequest();
+    
+    //$botServer->processRequest();
+    
+    $botServer->notifyBots(new message('my message', new user(1234567)));
     
 ?>

@@ -2,12 +2,14 @@
 
     $autoloaderpaths = [
             'app',
+            'app/bots',
             'app/bots/studnetHelp',
-            'app/bots/tabot'
+            'app/bots/tabot',
+            'app/bots/echobot'
     ];
 
-    spl_autoload_extensions('.class.php');
-
+    spl_autoload_extensions('.class.php,.abstract.php');    
+    
     //Set applications paths for the spl_autoloader
     foreach($autoloaderpaths as $path){
         set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . DIRECTORY_SEPARATOR . $path . DIRECTORY_SEPARATOR);

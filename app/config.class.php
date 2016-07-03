@@ -2,7 +2,7 @@
 
 class config {
     
-    const db = array(
+    static $db = array(
         userName => 'root',
         password => 'toor',
         server => 'localhost',

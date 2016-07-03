@@ -6,9 +6,8 @@ class messagestore extends message {
     private $connection;
     
     function __construct($message, $user) {
-        parent::__construct($message, $user);
-        echo config::db; 
-        //$this->connection = new PDO('mysql:host='.config::db['host'].';dbname='.config::db['name'], config::db['username'], config::db['password']);
+        parent::__construct($message, $user); 
+        $this->connection = new PDO('mysql:host='.config::$db['host'].';dbname='.config::$db['name'], config::$db['username'], config::$db['password']);
     }
     
     private function getQueryResult($query) {
