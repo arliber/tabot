@@ -1,12 +1,17 @@
 Tabot
 
-URL
+#URL
 localhost
 
-Logs
+#Logs
 /var/log/apache2/error.log
+logs.log
 
-FAQ
+#TODO
+1) Add PHPDoc documentation lines to methods and stuff
+2) 
+
+#FAQ
 
 .htaccess issues?
 1) Put it in the root /var/www/

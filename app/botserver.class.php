@@ -25,9 +25,12 @@
             }
         }
         
-        public function notifyBots($message) {
+        private function notifyBots($message) {
             foreach ($this->bots as $bot) {
-                $bot->processMessage($message);
+                $botMessage = $bot->processMessage($message);
+                if($botMessage) {
+                    $this->sendMessage($message);
+                }
             }
         }
         
@@ -58,15 +61,19 @@
             
         }
         
-        private function sendMessage() {
+        private function sendMessage($message) {
             
-            //Send response
-            $token = 'EAAOZCEaUNtxIBAL1bafIm0IYzlo8YcLxjxklu7hjyi8QC4yzwFXFfK0p8qDluJxmGP3lE1roZAOwvCBr7F8dqx0Of7kpTgGRZBncZC1gxtHxlT79Lpbgg4LIfAZA7ZAVVgsskxPd3RbJjsSRcX5rJYRnd8sQbjW4LMBMbgICIf5QZDZD';
-            $url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$token;
-            $postData = json_encode(array('recipient' => array('id' => $sender['id']), 'message' => array('text' => 'Did you say '.$text.'?' )));
+            $this->log->info('Bot server: Sending message..');
+            $this->log->info(config::$bot['accessToken']);
             
-            logMessage($postData, "data-sent");
-            
+            $accessToken = config::$bot['accessToken'];
+            $url = config::$bot['sendUrl'].$accessToken;
+            $postData = json_encode(array(
+                                            'recipient' => array('id' =>   $message->getUser()->getUserId()), 
+                                            'message'   => array('text' => $message->getMessage())
+                                          )
+                                   );
+
             $options = array(
                 'http' => array(
                     'header'  => "Content-type: application/json\r\n"
@@ -78,10 +85,11 @@
             
             $context  = stream_context_create($options);
             $result = file_get_contents($url, false, $context);
+            
             if ($result === FALSE) {
-                logMessage(print_r($result, true), "error");
+                $this->log->error('botserver->sendMessage(): Unable to send message - '.print_r($result, true));
             } else {
-                logMessage(print_r($result, true), "success");
+                $this->log->info('botserver->sendMessage(): Successfully sent message - '.print_r($result, true));
             }
             
         }

@@ -11,12 +11,16 @@
     $log = new Logger('BotApp');
     $log->pushHandler(new StreamHandler('logs.log', Logger::DEBUG));
     $log->info('App started..');
-      
-    $botServer = new BotServer($log, 'my_bot_app_will_change_the_world');
     
+    //Init bot server
+    $botServer = new BotServer($log, config::$bot['verificationToken']);
+    
+    //Init bot, add to bot server
     $echoBot = new EchoBot($log);
-    
     $botServer->addBot($echoBot);
+    
+    //Handle request
+    $botServer->processRequest();
     
     /*
         //Get request params as passed by .htaccess
@@ -36,9 +40,5 @@
                 break;
         }
     */
-    
-    //$botServer->processRequest();
-    
-    $botServer->notifyBots(new message('my message', new user(1234567)));
     
 ?>

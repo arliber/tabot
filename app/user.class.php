@@ -8,6 +8,10 @@
             $this->userId = $userId;
         }
         
+        public function getUserId() {
+            return $this->userId;
+        }
+        
     }
     
 ?>

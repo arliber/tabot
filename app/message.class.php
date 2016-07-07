@@ -10,6 +10,19 @@
             $this->user = $user;
         }
         
+        public function getUser() {
+            return $this->user;
+        }
+        
+        public function getMessage() {
+            return $this->message;
+        }
+        
+        public function setMessage($message) {
+            $this->message = $message;
+        }
+        
+        
     }
 
 ?>
