@@ -7,6 +7,12 @@
         
         public function processMessage($message) {
             $this->log->info('Echobot echos '.$message->getMessage());
+            
+            //Save message
+            $messageStore = new messagestore($message);
+            $messageStore->save();
+            
+            //Respond
             $message->setMessage('Did you say '.$message->getMessage().'?');
             return $message;
         }
