@@ -7,7 +7,11 @@ logs.log
 
 #TODO
 1) Add PHPDoc documentation lines to methods and stuff
-2) Migrate all logs to use global log file
+
+#Facebook related stuff
+https://developers.facebook.com/docs/messenger-platform/quickstart
+https://www.facebook.com/tabotapp/
+https://developers.facebook.com/apps/1054507434620690/webhooks/
 
 #FAQ
 
