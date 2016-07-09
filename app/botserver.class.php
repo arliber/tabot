@@ -48,7 +48,7 @@
                 if($event['message'] && $event['message']['text']) {
                     $text = $event['message']['text'];
                     $this->log->info('Message: ['.$text.']', $event);
-                    
+
                     //Send message to all bots
                     $message = new message($text, new user($sender['id']));
                     $this->notifyBots($message);
@@ -61,7 +61,7 @@
             
         }
         
-        private function sendMessage($message) {
+        public function sendMessage($message) {
             
             $this->log->info('Bot server: Sending message..');
             $this->log->info(config::$bot['accessToken']);

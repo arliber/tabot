@@ -17,7 +17,7 @@ class messagestore extends message {
     public function save() {
                
         try {
-            $query = $this->connection->prepare('INSERT INTO tabot.messages (message, userId) VALUES(:message, :userId)');
+            $query = $this->connection->prepare('INSERT INTO tabot.messages (message, userId, created) VALUES(:message, :userId, NOW())');
             if(!$query) {
                 $log->error('PDO error', $this->connection->errorInfo());
                 die();

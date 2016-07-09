@@ -12,10 +12,10 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
 
         <div class="container">
             
@@ -28,26 +28,32 @@
                 
                 <div class="card">
                     <h4>Total users</h4>
-                    <p>
-                        98
-                    </p>
+                    <p id="totalUsers">...</p>
                 </div>
                 <div class="card ">
                     <h4>Total messages</h4>
-                    <p>
-                        211
-                    </p>
+                    <p id="totalMessages">...</p>
                 </div>
                 <div class="card">
                     <h4>Message distribution</h4>
                     <p>
-                        <canvas id="myChart" width="150" height="150"></canvas>
+                        <canvas id="activityChart" width="150" height="100"></canvas>
                     </p>
                 </div>
 
             </section><!-- /3 cards -->
             
-            <section><!-- Messenger -->
+            <section id="messenger"><!-- Messenger -->
+               
+               <div class="left">
+                   <select name="userId" id="userId">
+                        <option value="loading">Loading users..</option>
+                   </select>
+                   <input type="text" name="message" id="message" class="messageText">
+               </div>
+               <div class="right">
+                    <input type="button" value="Send" class="button" id="sendMessage">
+               </div>
                 
             </section><!-- /Messenger -->
             

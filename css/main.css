@@ -56,6 +56,8 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/*CARDS*/
+
 #kpis {
   display: flex;
   border: 1px solid #0098D1;
@@ -84,20 +86,9 @@ textarea {
     color: #92A2A8;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#activityChart {
+    padding: 0px 10px 0 2px;
+}
 
 /*HEADER*/
 .container, header {
@@ -123,6 +114,51 @@ h1 {
 h1 span {
     color: #0098D1;
 }
+
+/*MESSENGER*/
+ #messenger {
+     width: 800px;
+     margin-top: 30px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+.button {
+   padding: 5px 15px;
+    color: #FFF;
+    background-color: #4EBBE4;
+    border: 1px solid #16A2D7;
+    border-radius: 4px;
+}
+
+.messageText {
+    padding: 5px 15px;
+    border: 1px solid #16A2D7;
+    border-radius: 4px;
+    width: 450px;
+    margin-left: 10px;
+}
+
+select {
+    padding: 5px 15px;
+    border: 1px solid #16A2D7;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
