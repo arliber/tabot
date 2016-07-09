@@ -4,7 +4,7 @@
 console.log('Requesting KPIs..');
 $.ajax({
     type: 'GET',
-    url: 'app/dashboard.controller.php',
+    url: 'dashboard.php',
     data: {
         action: 'getKPIs'
     },
@@ -25,7 +25,7 @@ $.ajax({
 console.log('Requesting users..');
 $.ajax({
     type: 'GET',
-    url: 'app/dashboard.controller.php',
+    url: 'dashboard.php',
     data: {
         action: 'getUsers'
     },
@@ -56,10 +56,11 @@ $("#sendMessage").click(function(){
     
     $.ajax({
         type: 'GET',
-        url: 'app/dashboard.controller.php',
+        url: 'dashboard.php',
         data: data,
         success: function(data){
             console.log(data);
+            $('#message').val('');
         },
         error: function(error) {
             console.log('Unable to send message', error);

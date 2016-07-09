@@ -8,7 +8,7 @@
             'app/bots/echobot'
     ];
 
-    spl_autoload_extensions('.class.php,.abstract.php');    
+    spl_autoload_extensions('.class.php,.abstract.php,.php');    
     
     //Set applications paths for the spl_autoloader
     foreach($autoloaderpaths as $path){
@@ -17,5 +17,7 @@
 
     //Register autoloader methods here, or leave the call empty for spl_autoloader default
     spl_autoload_register();
-
+    
+    require_once('vendor/autoload.php'); // Load composer packages
+    
 ?>

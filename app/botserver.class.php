@@ -45,7 +45,7 @@
                 $sender = $event['sender'];
                 $recipient = $event['recipient'];
                 
-                if($event['message'] && $event['message']['text']) {
+                if(isset($event['message']) && isset($event['message']['text'])) {
                     $text = $event['message']['text'];
                     $this->log->info('Message: ['.$text.']', $event);
 

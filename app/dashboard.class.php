@@ -7,6 +7,7 @@
         
         function __construct($log) {
             $this->log = $log;
+            
             //Define DB
             $this->connection = new PDO('mysql:host='.config::$db['server'].';dbname='.config::$db['name'], config::$db['userName'], config::$db['password']);
             $this->connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);  // allows us to catch errors
@@ -38,7 +39,7 @@
         private function getUsersActivity() {
 
             try {
-                $query = $this->connection->prepare('SELECT count(*) as messages, concat(day(created),\'/\',month(created)) as created FROM `messages` group by created');
+                $query = $this->connection->prepare('SELECT count(*) as messages, concat(day(created),\'/\',month(created)) as created FROM `messages` group by created limit 6');
                     
                 if(!$query) {
                     $this->log->error('PDO error', $this->connection->errorInfo());
@@ -56,7 +57,7 @@
         }
         
         public function getKPIs() {
-            
+                        
             $basicKPIs = $this->getBasicKPIs();
             $activity = $this->getUsersActivity();
             

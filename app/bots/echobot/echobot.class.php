@@ -9,7 +9,7 @@
             $this->log->info('Echobot echos '.$message->getMessage());
             
             //Save message
-            $messageStore = new messagestore($message);
+            $messageStore = new messagestore($message, $this->log);
             $messageStore->save();
             
             //Respond

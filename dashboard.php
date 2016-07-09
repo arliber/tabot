@@ -1,16 +1,7 @@
 <?php
     
-    require_once('../autoload.php'); // Load app classes
-    require_once('../vendor/autoload.php'); // Load composer packages
-    
-    //Dependencies
-    use Monolog\Logger;
-    use Monolog\Handler\StreamHandler;
-
-    // Init log
-    $log = new Logger('Dashboard');
-    $log->pushHandler(new StreamHandler('../dashboard.log', Logger::DEBUG));
-    $log->info('Dashboard launched..');
+    require_once('autoload.php');
+    require_once('logger.php');
     
     header('Content-Type: application/json');
     

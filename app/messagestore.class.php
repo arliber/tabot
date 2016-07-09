@@ -1,13 +1,14 @@
 <?php
 
-require_once('logger.php');
-
 class messagestore extends message {
     
+    private $log;
     private $connection;
     
-    function __construct($message) {
+    function __construct($message, $log) {
         parent::__construct($message); 
+        
+        $this->log = $log;
         
         //Define DB
         $this->connection = new PDO('mysql:host='.config::$db['server'].';dbname='.config::$db['name'], config::$db['userName'], config::$db['password']);
@@ -19,7 +20,7 @@ class messagestore extends message {
         try {
             $query = $this->connection->prepare('INSERT INTO tabot.messages (message, userId, created) VALUES(:message, :userId, NOW())');
             if(!$query) {
-                $log->error('PDO error', $this->connection->errorInfo());
+                $this->log->error('PDO error', $this->connection->errorInfo());
                 die();
             } else {
                 $res = $query->execute(array(
@@ -28,7 +29,7 @@ class messagestore extends message {
                 ));
             }
         } catch (PDOException $e) {
-            $log->error('PDO error', $e->getMessage());
+            $this->log->error('PDO error', $e->getMessage());
             die();
         } 
 
