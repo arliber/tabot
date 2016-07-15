@@ -11,7 +11,12 @@ class messagestore extends message {
         $this->log = $log;
 
         //Define DB
-        $this->connection = new PDO('mysql:host='.config::$db['server'].';dbname='.config::$db['name'], config::$db['userName'], config::$db['password']);
+        $userName = $_ENV['DB_USERNAME']?$_ENV['DB_USERNAME']:config::$db['userName'];
+        $password = $_ENV['DB_PASSWORD']?$_ENV['DB_PASSWORD']:config::$db['password'];
+        $server = $_ENV['DB_SERVER']?$_ENV['DB_SERVER']:config::$db['server'];
+        $name = $_ENV['DB_NAME']?$_ENV['DB_NAME']:config::$db['name'];
+
+        $this->connection = new PDO('mysql:host='.$server.';dbname='.$name, $userName, $password);
         $this->connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);  // allows us to catch errors
     }
 

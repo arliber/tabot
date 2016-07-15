@@ -2,19 +2,26 @@
 
 class config {
 
-    /*static $db = array(
+    static $db = array(
         'userName' => 'root',
         'password' => 'toor',
         'server' => 'localhost',
         'name' => 'tabot'
-    );*/
+    );
 
-    static $db = array(
+    /*static $db = array(
         'userName' => 'b57651611a37a4',
         'password' => '5d214118',
         'server' => 'us-cdbr-iron-east-04.cleardb.net',
         'name' => 'heroku_629a78a21f203fa'
-    );
+    );*/
+
+    /*static $db = array(
+        'userName' => $_ENV['DB_USERNAME'],
+        'password' => $_ENV['DB_PASSWORD'],
+        'server' => $_ENV['DB_SERVER'],
+        'name' => $_ENV['DB_NAME']
+    );*/
 
     static $bot = array(
         'verificationToken' => 'my_bot_app_will_change_the_world',
