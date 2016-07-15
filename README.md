@@ -1,4 +1,4 @@
-![alt text](https://github.com/LeonLiber/tabot/blob/master/screenshot.png "Tabot")
+![alt text](https://github.com/LeonLiber/tabot/blob/master/app-screenshot.png "Tabot")
 
 #URL
 localhost
