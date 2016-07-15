@@ -40,4 +40,5 @@ https://developers.facebook.com/apps/1054507434620690/webhooks/
 #Heorku
 
 1) To get the DB host, run `heroku config --app tabot` and take part of the `CLEARDB_DATABASE_URL` as the base URL
-2)
+2) `heroku logs -a tabot -t`
+3) SSH to dyno: `heroku run bash -a tabot`
