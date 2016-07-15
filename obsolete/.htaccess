@@ -1,9 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine On
- 
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{SCRIPT_FILENAME} !-f
-
-#App route
-#RewriteCond %{QUERY_STRING} ^hub_verify_token=(.*)&hub_challenge=(.*)$
-#RewriteRule ^(\w*)/?$ ./app.php?action=$1&hub_verify_token=%1&hub_challenge=%2 [L,QSA] 
