@@ -35,4 +35,9 @@ https://developers.facebook.com/apps/1054507434620690/webhooks/
     Go to /etc/apache2/sites-enabled
     sudo nano 000-default.conf
     Update the path to the root folder & save
-    
+
+
+#Heorku
+
+1) To get the DB host, run `heroku config --app tabot` and take part of the `CLEARDB_DATABASE_URL` as the base URL
+2)

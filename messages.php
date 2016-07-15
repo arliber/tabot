@@ -1,9 +1,9 @@
 <?php
 
 
-    require_once('../autoload.php'); // Load app classes
-    require_once('../vendor/autoload.php'); // Load composer packages
-    
+  require_once('autoload.php');
+  require_once('logger.php');
+
     //Dependencies
     use Monolog\Logger;
     use Monolog\Handler\StreamHandler;
@@ -13,7 +13,7 @@
     //$log->pushHandler(new StreamHandler('logs.log', Logger::DEBUG));
 
     $message = new message('test',new user(123));
-    $messageStore = new messagestore($message);
+    $messageStore = new messagestore($message, $log);
     $messageStore->save();
 
 ?>
