@@ -23,7 +23,7 @@ class messagestore extends message {
     public function save() {
 
         try {
-            $query = $this->connection->prepare('INSERT INTO '.config::$db['name'].'.messages (message, userId, created) VALUES(:message, :userId, NOW())');
+            $query = $this->connection->prepare('INSERT INTO '.$name.'.messages (message, userId, created) VALUES(:message, :userId, NOW())');
             if(!$query) {
                 $this->log->error('PDO error', $this->connection->errorInfo());
                 die();
