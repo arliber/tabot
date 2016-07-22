@@ -1,24 +1,23 @@
 ![alt text](https://github.com/LeonLiber/tabot/blob/master/app-screenshot.png "Tabot")
 
-#Setup guide
-# Clone the repo: git clone https://github.com/LeonLiber/tabot.git <folder name>
-#
+# Setup guide
 
-#URL
-localhost
+- Clone the repo: `git clone https://github.com/LeonLiber/tabot.git <folder name>`
+
+- Run `php composer.phar install`
+
+- Open `localhost/<folder name>` in you're browser
+
+- Goto `https://developers.facebook.com/docs/messenger-platform/quickstart` and setup you're bot
+
+  Tip: Don't forget to add 'Webhooks' product
+
+- Use localtunnel to get a static URL by typing `lt --port 80`
 
 #Logs
 /var/log/apache2/error.log
 
 logs.log
-
-#TODO
-1) Add PHPDoc documentation lines to methods and stuff
-
-#Facebook related stuff
-https://developers.facebook.com/docs/messenger-platform/quickstart
-https://www.facebook.com/tabotapp/
-https://developers.facebook.com/apps/1054507434620690/webhooks/
 
 #FAQ
 
@@ -41,7 +40,7 @@ https://developers.facebook.com/apps/1054507434620690/webhooks/
 
 3) Bot not getting messages from FB?
 
-    Go to https://developers.facebook.com/apps/1054507434620690/messenger/ and make sure that under 'Webooks' the correct page is selected
+    Go to https://developers.facebook.com/apps/XXXXXX/messenger/ and make sure that under 'Webooks' the correct page is selected
 
 4) Install/Reinstall LAMP
 
@@ -57,7 +56,11 @@ https://developers.facebook.com/apps/1054507434620690/webhooks/
 
     Update the path to the root folder & save
 
-#Heorku
+6) Where is my bot app & page?
+
+   https://developers.facebook.com/
+
+#Heorku deployment
 
 1) To get the DB host, run `heroku config --app tabot` and take part of the `CLEARDB_DATABASE_URL` as the base URL
 
