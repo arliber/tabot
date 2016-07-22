@@ -1,5 +1,9 @@
 ![alt text](https://github.com/LeonLiber/tabot/blob/master/app-screenshot.png "Tabot")
 
+#Setup guide
+# Clone the repo: git clone https://github.com/LeonLiber/tabot.git <folder name>
+#
+
 #URL
 localhost
 
