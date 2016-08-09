@@ -71,14 +71,18 @@ logs.log
 
 #Database
 
-`--
--- Table structure for table `messages`
---
+
 
 CREATE TABLE IF NOT EXISTS `messages` (
+
   `id` int(11) NOT NULL AUTO_INCREMENT,
+
   `message` varchar(1024) COLLATE utf8_unicode_ci NOT NULL,
+
   `userId` text COLLATE utf8_unicode_ci NOT NULL,
+
   `created` date NOT NULL,
+
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=74 ;`
+
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=74 ;
