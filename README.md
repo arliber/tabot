@@ -12,7 +12,7 @@
 
   Tip: Don't forget to add 'Webhooks' product
 
-- Install NodeJS, then run  `npm i localtunnel -g`, then run `lt --port 80`
+- Install NodeJS, then run  `sudo npm i localtunnel -g`, then run `lt --port 80`
 
   This will return a public URL to you're port 80 (which is the where the bot is)
 
