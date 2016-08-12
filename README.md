@@ -12,7 +12,9 @@
 
   Tip: Don't forget to add 'Webhooks' product
 
-- Use localtunnel to get a static URL by typing `lt --port 80`
+- Install NodeJS, then run  `npm i localtunnel -g`, then run `lt --port 80`
+
+  This will return a public URL to you're port 80 (which is the where the bot is)
 
 #Logs
 /var/log/apache2/error.log
